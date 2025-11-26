@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Creative Developer</title>
+    <meta name="description"
+        content="Portfolio of a creative full-stack developer specializing in modern web experiences.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        glass: {
+                            100: 'rgba(255, 255, 255, 0.1)',
+                            200: 'rgba(255, 255, 255, 0.2)',
+                            300: 'rgba(255, 255, 255, 0.3)',
+                            dark: 'rgba(0, 0, 0, 0.3)',
+                        },
+                        primary: '#6366f1',
+                        secondary: '#ec4899',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body
+    class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans selection:bg-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-heading font-bold text-gradient">CraftedbyChaubey</a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                <button id="theme-toggle"
+                    class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden p-2" id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800"
+            id="mobile-menu">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="#about" class="hover:text-primary">About</a>
+                <a href="#skills" class="hover:text-primary">Skills</a>
+                <a href="#projects" class="hover:text-primary">Projects</a>
+                <a href="#contact" class="hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <!-- Background Blobs -->
+        <div
+            class="absolute top-20 left-20 w-72 h-72 bg-primary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob">
+        </div>
+        <div
+            class="absolute top-20 right-20 w-72 h-72 bg-secondary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute -bottom-8 left-1/2 w-72 h-72 bg-purple-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-lg md:text-xl font-medium text-primary mb-4 opacity-0 hero-animate">
+                Hi, I'm Divyanshu Chaubey a Creative Developer
+            </h2>
+            <h1 class="text-5xl md:text-7xl font-heading font-bold mb-6 opacity-0 hero-animate">
+                Building <span class="text-gradient">Digital Experiences</span><br>That Matter.
+            </h1>
+            <p
+                class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10 opacity-0 hero-animate">
+                I craft beautiful, high-performance websites and applications with modern technologies and a focus on
+                user experience.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4 opacity-0 hero-animate">
+                <a href="#projects"
+                    class="px-8 py-3 rounded-full bg-primary text-white font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/25">View
+                    Projects</a>
+                <a href="#contact"
+                    class="px-8 py-3 rounded-full border border-gray-300 dark:border-gray-700 hover:border-primary hover:text-primary transition-all">Contact
+                    Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <h2
+                class="section-title text-3xl md:text-4xl font-heading font-bold mb-12 text-center">
+                <span class="text-gradient">About Me</span>
+            </h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <div class="relative group">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200">
+                        </div>
+                        <div class="relative aspect-square rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <img src="assets/images/Divyanshu.jpg"
+                                alt="Profile" class="object-cover w-full h-full" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-2xl font-bold mb-4">Passionate about clean code & design.</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        I'm a full-stack developer with a keen eye for design. I bridge the gap between engineering and
+                        aesthetics, ensuring that every product I build not only works perfectly but looks amazing too.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        With 2+ years of experience in the industry. I love solving problems and learning new
+                        technologies.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-4xl font-bold text-primary mb-2">2+</h4>
+                            <p class="text-sm text-gray-500">Years Experience</p>
+                        </div>
+                        <div>
+                            <h4 class="text-4xl font-bold text-secondary mb-2">5+</h4>
+                            <p class="text-sm text-gray-500">Projects Completed</p>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <a href="assets/images/my_resume.pdf"
+                            class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+                            Download Resume <i data-lucide="download" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2
+                class="section-title text-3xl md:text-4xl font-heading font-bold mb-12 text-center">
+                My <span class="text-gradient">Skills</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Frontend -->
+                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400">
+                        <i data-lucide="layout" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Frontend</h3>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> HTML5 & CSS3</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> JavaScript</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> Next.js</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> Tailwind CSS</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> Framer Motion / GSAP</li>
+                    </ul>
+                </div>
+
+                <!-- Backend -->
+                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-6 text-green-600 dark:text-green-400">
+                        <i data-lucide="server" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Backend</h3>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> Node.js</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> Python & Django</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> MySQL</li>
+                    </ul>
+                </div>
+
+                <!-- Tools -->
+                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6 text-purple-600 dark:text-purple-400">
+                        <i data-lucide="wrench" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Tools & Others</h3>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> Git & GitHub</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> Visual Studio Code</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> MS-Office Suites</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="w-4 h-4 text-green-500"></i> Google Workspace</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <h2
+                class="section-title text-3xl md:text-4xl font-heading font-bold mb-12 text-center">
+                Featured <span class="text-gradient">Projects</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="assets/images/EducationalPlatform.png"
+                            alt="Educational Platform Project Screenshot"
+                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                            <a href="#"
+                                class="p-2 bg-white rounded-full hover:bg-primary hover:text-white transition-colors"
+                                title="View Code"><i data-lucide="github" class="w-5 h-5"></i></a>
+                            <a href="https://studyfeel.free.nf/"
+                                class="p-2 bg-white rounded-full hover:bg-primary hover:text-white transition-colors"
+                                title="Live Demo"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Educational Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                            A comprehensive educational platform with a clean UI to enhance the online learning experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium">PHP</span>
+                            <span
+                                class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium">MySQL</span>
+                            <span
+                                class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="assets/images/amazonclone.png"
+                            alt="Amazon Frontend Clone Project Screenshot"
+                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                            <a href="https://github.com/imDivyansh18/BasicClone-Amazon"
+                                class="p-2 bg-white rounded-full hover:bg-primary hover:text-white transition-colors"
+                                title="View Code"><i
+                                    data-lucide="github" class="w-5 h-5"></i></a>
+                            <a href="#"
+                                class="p-2 bg-white rounded-full hover:bg-primary hover:text-white transition-colors"
+                                title="Live Demo"><i
+                                    data-lucide="external-link" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Amazon Frontend Clone</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                            A pixel-perfect frontend clone of Amazon's UI built using modern HTML and CSS techniques.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium">HTML5</span>
+                            <span
+                                class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium">CSS3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto glass-card rounded-3xl overflow-hidden shadow-2xl">
+                <div class="flex flex-col md:flex-row">
+                    <div class="w-full md:w-1/2 bg-gradient-to-br from-primary to-secondary p-12 text-white">
+                        <h2 class="text-3xl font-heading font-bold mb-6">Let's Chat!</h2>
+                        <p class="mb-8 text-white/90">Have a project in mind? I'd love to hear about it. Send me a
+                            message and I'll get back to you as soon as possible.</p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <span>divya95nshu@gmail.com, techtitansadv@gmail.com</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
+                                <span>Baghaw, Sahatwar(277211), Ballia, Uttar Pradesh</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                </div>
+                                <span>+91 8726037761</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 flex gap-4">
+                            <a href="https://github.com/imDivyansh18"
+                                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-colors"><i
+                                    data-lucide="github" class="w-5 h-5"></i></a>
+                            <a href="https://www.linkedin.com/in/divyanshu-chaubey-5b25a531a/"
+                                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-colors"><i
+                                    data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/2 p-12 bg-white dark:bg-gray-900">
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
+                                <input type="text" id="name"
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                                    placeholder="Radhey Krishna" required>
+                            </div>
+                            <div>
+                                <label for="email"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                                <input type="email" id="email"
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                                    placeholder="ram@example.com" required>
+                            </div>
+                            <div>
+                                <label for="message"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                                <textarea id="message" rows="4"
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                                    placeholder="Tell me about your project..." required></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/25">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-500 dark:text-gray-400">© 2025 Build with ❤️ from techtitans team. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
