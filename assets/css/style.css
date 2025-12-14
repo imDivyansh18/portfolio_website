@@ -89,7 +89,8 @@
     opacity: 0;
 }
 
+/* Section titles should be visible by default so GSAP 'from' animations work correctly */
 .section-title {
-    transform: translateY(30px);
-    opacity: 0;
+    transform: none;
+    opacity: 1;
 }
