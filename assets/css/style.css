@@ -94,3 +94,82 @@
     transform: none;
     opacity: 1;
 }
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+    z-index: var(--z-back-to-top);
+}
+
+.back-to-top.visible {
+    display: flex;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* CSS Variables used across components (fallbacks for older browsers) */
+:root {
+    --primary-gradient: linear-gradient(90deg, #6366f1, #ec4899);
+    --radius-md: 0.5rem;
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    --transition-normal: 0.2s ease;
+    --z-back-to-top: 9999;
+}
+
+.dark :root {
+    --primary-gradient: linear-gradient(90deg, #4f46e5, #db2777);
+}
+
+/* Mobile improvements */
+.touch-target {
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    padding: 12px 10px;
+}
+
+/* Mobile menu overlay specifics */
+#mobile-menu {
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: opacity 200ms ease, transform 200ms ease;
+}
+
+/* Back-to-top responsive sizing */
+.back-to-top {
+    width: 50px;
+    height: 50px;
+}
+
+@media (max-width: 480px) {
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        right: 1rem;
+        bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .touch-target {
+        padding: 14px 12px;
+    }
+}

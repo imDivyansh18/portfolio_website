@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         htmlElement.classList.remove('dark');
     }
 
+    // Reflect initial theme state in ARIA attribute
+    if (themeToggleBtn) {
+        themeToggleBtn.setAttribute('aria-pressed', htmlElement.classList.contains('dark') ? 'true' : 'false');
+    }
+
     // Theme Toggle Logic
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
@@ -27,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 localStorage.theme = 'light';
             }
+            // Update ARIA state for assistive tech
+            themeToggleBtn.setAttribute('aria-pressed', htmlElement.classList.contains('dark') ? 'true' : 'false');
         });
     }
 
@@ -37,13 +44,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            // Update aria-expanded on toggle
+            const expanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', expanded);
+            // Keep mobile menu accessible: set aria-hidden opposite of expanded
+            mobileMenu.setAttribute('aria-hidden', expanded === 'true' ? 'false' : 'true');
+            // If opened, move focus to first link
+            if (expanded === 'true') {
+                const firstLink = mobileMenu.querySelector('a');
+                if (firstLink) firstLink.focus();
+            }
         });
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenu.setAttribute('aria-hidden', 'true');
             });
+        });
+
+        // Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                mobileMenuBtn.focus();
+            }
         });
     }
 
@@ -122,6 +151,58 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.classList.add('bg-primary', 'hover:bg-primary/90');
                 }, 3000);
             }, 1500);
+        });
+    }
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    const showAt = 300; // px scrolled before showing button
+
+    if (backToTop) {
+        // Ensure lucide icons updated (in case created before)
+        if (window.lucide && typeof lucide.createIcons === 'function') {
+            lucide.createIcons();
+        }
+
+        const toggleVisibility = () => {
+            if (window.scrollY > showAt) {
+                backToTop.classList.add('visible');
+                backToTop.setAttribute('aria-hidden', 'false');
+            } else {
+                backToTop.classList.remove('visible');
+                backToTop.setAttribute('aria-hidden', 'true');
+            }
+        };
+
+        // Initial check
+        toggleVisibility();
+
+        // Listen for scroll events (debounced via requestAnimationFrame)
+        let scheduled = false;
+        window.addEventListener('scroll', () => {
+            if (!scheduled) {
+                scheduled = true;
+                window.requestAnimationFrame(() => {
+                    toggleVisibility();
+                    scheduled = false;
+                });
+            }
+        }, { passive: true });
+
+        // Click to scroll to top
+        const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToTop();
+        });
+
+        // Keyboard accessibility: Enter/Space
+        backToTop.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                scrollToTop();
+            }
         });
     }
 });
