@@ -54,14 +54,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 const firstLink = mobileMenu.querySelector('a');
                 if (firstLink) firstLink.focus();
             }
+            // If closed, ensure focus does not remain inside the now-hidden menu
+            if (expanded === 'false') {
+                const activeInside = mobileMenu.querySelector(':focus');
+                if (activeInside && typeof activeInside.blur === 'function') activeInside.blur();
+                mobileMenuBtn.focus();
+            }
         });
 
-        // Close mobile menu when clicking a link
+        // Close mobile menu when clicking a link and return focus to the toggle
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
                 mobileMenuBtn.setAttribute('aria-expanded', 'false');
                 mobileMenu.setAttribute('aria-hidden', 'true');
+                // ensure no focus remains inside the hidden menu
+                if (document.activeElement && mobileMenu.contains(document.activeElement)) {
+                    try { document.activeElement.blur(); } catch (e) {}
+                }
+                mobileMenuBtn.focus();
             });
         });
 
@@ -167,9 +178,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggleVisibility = () => {
             if (window.scrollY > showAt) {
                 backToTop.classList.add('visible');
-                backToTop.setAttribute('aria-hidden', 'false');
+                // Ensure it is focusable when visible
+                backToTop.removeAttribute('tabindex');
+                backToTop.removeAttribute('aria-hidden');
             } else {
                 backToTop.classList.remove('visible');
+                // Make non-focusable when hidden to avoid aria-hidden focus issues
+                backToTop.setAttribute('tabindex', '-1');
+                try { backToTop.blur(); } catch (e) {}
                 backToTop.setAttribute('aria-hidden', 'true');
             }
         };
