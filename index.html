@@ -19,7 +19,8 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Favicon (inline SVG data URI) -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%236366f1'/%3E%3Ctext x='50' y='55' font-family='Arial' font-size='60' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%236366f1'/%3E%3Ctext x='50' y='55' font-family='Arial' font-size='60' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
 
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -73,13 +74,15 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button class="md:hidden p-2" id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
+            <button class="md:hidden p-2" id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false"
+                aria-label="Toggle menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
         <!-- Mobile Menu (fixed overlay) -->
-        <div class="md:hidden hidden fixed inset-x-0 top-16 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 p-4 z-40" id="mobile-menu" role="menu" aria-hidden="true">
+        <div class="md:hidden hidden fixed inset-x-0 top-16 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 p-4 z-40"
+            id="mobile-menu" role="menu" aria-hidden="true">
             <div class="flex flex-col space-y-4">
                 <a href="#about" class="hover:text-primary py-3 px-2 rounded-md touch-target">About</a>
                 <a href="#skills" class="hover:text-primary py-3 px-2 rounded-md touch-target">Skills</a>
@@ -128,8 +131,7 @@
     <!-- About Section -->
     <section id="about" class="py-20 bg-white dark:bg-gray-800/50">
         <div class="container mx-auto px-6">
-            <h2
-                class="section-title text-3xl md:text-4xl font-heading font-bold mb-12 text-center">
+            <h2 class="section-title text-3xl md:text-4xl font-heading font-bold mb-12 text-center">
                 <span class="text-gradient">About Me</span>
             </h2>
             <div class="flex flex-col md:flex-row items-center gap-12">
@@ -139,8 +141,8 @@
                             class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200">
                         </div>
                         <div class="relative aspect-square rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800">
-                            <img src="assets/images/Divyanshu.png"
-                                alt="Profile" class="object-cover w-full h-full" loading="lazy">
+                            <img src="assets/images/Divyanshu.png" alt="Profile" class="object-cover w-full h-full"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -178,8 +180,7 @@
     <!-- Skills Section -->
     <section id="skills" class="py-20">
         <div class="container mx-auto px-6">
-            <h2
-                class="section-title text-3xl md:text-4xl font-heading font-bold mb-12 text-center">
+            <h2 class="section-title text-3xl md:text-4xl font-heading font-bold mb-12 text-center">
                 My <span class="text-gradient">Skills</span>
             </h2>
 
@@ -247,8 +248,7 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20 bg-white dark:bg-gray-800/50">
         <div class="container mx-auto px-6">
-            <h2
-                class="section-title text-3xl md:text-4xl font-heading font-bold mb-12 text-center">
+            <h2 class="section-title text-3xl md:text-4xl font-heading font-bold mb-12 text-center">
                 Featured <span class="text-gradient">Projects</span>
             </h2>
 
@@ -256,24 +256,26 @@
                 <!-- Project 1 -->
                 <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                     <div class="relative overflow-hidden aspect-video">
-                        <img src="assets/images/EducationalPlatform.png"
-                            alt="Educational Platform Project Screenshot"
+                        <img src="assets/images/EducationalPlatform.png" alt="Educational Platform Project Screenshot"
                             class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
                             loading="lazy">
                         <div
                             class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                             <a href="#"
                                 class="p-2 bg-white rounded-full hover:bg-primary hover:text-white transition-colors"
-                                title="View Code" aria-label="View project code"><i data-lucide="github" class="w-5 h-5"></i></a>
+                                title="View Code" aria-label="View project code"><i data-lucide="github"
+                                    class="w-5 h-5"></i></a>
                             <a href="https://studyfeel.free.nf/"
                                 class="p-2 bg-white rounded-full hover:bg-primary hover:text-white transition-colors"
-                                title="Live Demo" aria-label="Open live demo"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                                title="Live Demo" aria-label="Open live demo"><i data-lucide="external-link"
+                                    class="w-5 h-5"></i></a>
                         </div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Educational Platform</h3>
                         <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                            A comprehensive educational platform with a clean UI to enhance the online learning experience.
+                            A comprehensive educational platform with a clean UI to enhance the online learning
+                            experience.
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <span
@@ -289,20 +291,19 @@
                 <!-- Project 2 -->
                 <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                     <div class="relative overflow-hidden aspect-video">
-                        <img src="assets/images/amazonclone.png"
-                            alt="Amazon Frontend Clone Project Screenshot"
+                        <img src="assets/images/amazonclone.png" alt="Amazon Frontend Clone Project Screenshot"
                             class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
                             loading="lazy">
                         <div
                             class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                             <a href="https://github.com/imDivyansh18/BasicClone-Amazon"
                                 class="p-2 bg-white rounded-full hover:bg-primary hover:text-white transition-colors"
-                                title="View Code" aria-label="View project code"><i
-                                    data-lucide="github" class="w-5 h-5"></i></a>
+                                title="View Code" aria-label="View project code"><i data-lucide="github"
+                                    class="w-5 h-5"></i></a>
                             <a href="#"
                                 class="p-2 bg-white rounded-full hover:bg-primary hover:text-white transition-colors"
-                                title="Live Demo" aria-label="Open live demo"><i
-                                    data-lucide="external-link" class="w-5 h-5"></i></a>
+                                title="Live Demo" aria-label="Open live demo"><i data-lucide="external-link"
+                                    class="w-5 h-5"></i></a>
                         </div>
                     </div>
                     <div class="p-6">
@@ -318,6 +319,40 @@
                         </div>
                     </div>
                 </div>
+                    <!-- Project 3 -->
+                <div class="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="assets/images/Compressor.png" alt="Smart Image Compressor Project Screenshot"
+                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                            <a href="https://github.com/imDivyansh18/Smart_Image_Compressor"
+                                class="p-2 bg-white rounded-full hover:bg-primary hover:text-white transition-colors"
+                                title="View Code" aria-label="View project code"><i data-lucide="github"
+                                    class="w-5 h-5"></i></a>
+                            <a href="https://smart-image-compressor-two.vercel.app/"
+                                class="p-2 bg-white rounded-full hover:bg-primary hover:text-white transition-colors"
+                                title="Live Demo" aria-label="Open live demo"><i data-lucide="external-link"
+                                    class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Smart-Image-Compressor</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                            This is a single-page, client-side image compressor that tries to reach an exact target file
+                            size (KB) using the Canvas API and iterative quality + resize adjustments.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium">HTML5</span>
+                            <span
+                                class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium">CSS3</span>
+                            <span
+                                class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -325,8 +360,7 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20">
         <div class="container mx-auto px-6">
-            <h2
-                class="section-title text-3xl md:text-4xl font-heading font-bold mb-12 text-center">
+            <h2 class="section-title text-3xl md:text-4xl font-heading font-bold mb-12 text-center">
                 <span class="text-gradient">Contact Me</span>
             </h2>
             <div class="max-w-4xl mx-auto glass-card rounded-3xl overflow-hidden shadow-2xl">
@@ -355,11 +389,11 @@
 
                         <div class="mt-12 flex gap-4">
                             <a href="https://github.com/imDivyansh18"
-                                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-colors" aria-label="GitHub profile"><i
-                                    data-lucide="github" class="w-5 h-5"></i></a>
+                                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-colors"
+                                aria-label="GitHub profile"><i data-lucide="github" class="w-5 h-5"></i></a>
                             <a href="https://www.linkedin.com/in/divyanshu-chaubey-5b25a531a/"
-                                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-colors" aria-label="LinkedIn profile"><i
-                                    data-lucide="linkedin" class="w-5 h-5"></i></a>
+                                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-colors"
+                                aria-label="LinkedIn profile"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
                         </div>
                     </div>
 
@@ -400,8 +434,11 @@
     <!-- Footer -->
     <footer class="py-8 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
         <div class="container mx-auto px-6 text-center">
-              <p class="text-gray-500 dark:text-gray-400">© 2025 Build with ❤️ from <a href="https://techtitansadv.rf.gd" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-700 dark:hover:text-gray-200">Techtitans</a> team. All rights reserved.</p>
-              <p class="text-gray-500 dark:text-gray-400">Designed & Developed by Divyanshu Chaubey.</p>
+            <p class="text-gray-500 dark:text-gray-400">© 2025 Build with ❤️ from <a href="https://techtitansadv.rf.gd"
+                    target="_blank" rel="noopener noreferrer"
+                    class="underline hover:text-gray-700 dark:hover:text-gray-200">Techtitans</a> team. All rights
+                reserved.</p>
+            <p class="text-gray-500 dark:text-gray-400">Designed & Developed by Divyanshu Chaubey.</p>
         </div>
     </footer>
 
