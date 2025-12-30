@@ -7,36 +7,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const htmlElement = document.documentElement;
     const themeToggleBtn = document.getElementById('theme-toggle');
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-    // Initial theme detection (same logic as before)
-    if (
-        localStorage.theme === 'dark' ||
-        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-        htmlElement.classList.add('dark');
-    } else {
-        htmlElement.classList.remove('dark');
-    }
+    // Helper: Apply theme to UI with optional animation
+    const applyTheme = (isDark, animate = false) => {
+        if (isDark) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
 
-    // Reflect initial theme state in ARIA attribute
-    if (themeToggleBtn) {
-        themeToggleBtn.setAttribute('aria-pressed', htmlElement.classList.contains('dark') ? 'true' : 'false');
-    }
+        if (themeToggleBtn) {
+            themeToggleBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
 
-    // Theme Toggle Logic
+            if (animate) {
+                const moon = themeToggleBtn.querySelector('[data-lucide="moon"]');
+                const sun = themeToggleBtn.querySelector('[data-lucide="sun"]');
+                const activeIcon = isDark ? moon : sun;
+
+                if (activeIcon) {
+                    // Reset animation
+                    activeIcon.classList.remove('animate-theme-icon');
+                    void activeIcon.offsetWidth; // Trigger reflow
+                    activeIcon.classList.add('animate-theme-icon');
+                }
+            }
+        }
+    };
+
+    // Helper: Update theme based on state
+    const updateTheme = (animate = false) => {
+        const storedTheme = localStorage.theme;
+        const isSystemDark = systemTheme.matches;
+
+        if (storedTheme === 'dark' || (!storedTheme && isSystemDark)) {
+            applyTheme(true, animate);
+        } else {
+            applyTheme(false, animate);
+        }
+    };
+
+    // Initialize Theme
+    updateTheme(false);
+
+    // Event Listener: Toggle Button
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.theme = 'dark';
-            } else {
-                localStorage.theme = 'light';
-            }
-            // Update ARIA state for assistive tech
-            themeToggleBtn.setAttribute('aria-pressed', htmlElement.classList.contains('dark') ? 'true' : 'false');
+            const isDark = htmlElement.classList.contains('dark');
+            localStorage.theme = isDark ? 'light' : 'dark';
+            updateTheme(true);
         });
     }
+
+    // Event Listener: System Theme Change
+    systemTheme.addEventListener('change', () => {
+        if (!('theme' in localStorage)) {
+            updateTheme(true);
+        }
+    });
+
+    // Event Listener: Cross-Tab Sync
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'theme') {
+            updateTheme(true);
+        }
+    });
 
     // Mobile Menu Logic
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
