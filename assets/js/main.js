@@ -162,20 +162,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 y: 50,
                 opacity: 0,
                 duration: 0.8,
-                delay: i * 0.1,
+                delay: Math.min(i * 0.1, 0.4),  // capped at 0.4s to prevent slowdown as card count grows
                 ease: 'power3.out'
             });
         });
     }
 
     // Contact Form Handling
-    // Contact Form Handling
     const contactForm = document.getElementById('contact-form');
 
     if (contactForm) {
-        // Initialize EmailJS with your Public Key
+        // EmailJS Public Key — obfuscated via Base64 split to prevent plain-text scraping.
+        // ⚠️ NOTE: This is obfuscation, NOT true encryption. Client-side keys can always
+        // be read via DevTools at runtime. The real fix is to restrict this key to your
+        // domain in EmailJS dashboard: https://dashboard.emailjs.com → Account → API Keys
         if (typeof emailjs !== 'undefined') {
-            emailjs.init("jpcRakGBBrb6Df97f");
+            // 'anBjUmFrR0JC' + 'cmI2RGY5N2Y=' decodes to the public key via atob()
+            const _a = 'anBjUmFrR0JC';
+            const _b = 'cmI2RGY5N2Y=';
+            emailjs.init(atob(_a + _b));
         }
 
         contactForm.addEventListener('submit', (e) => {
